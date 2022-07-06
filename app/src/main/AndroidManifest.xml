@@ -14,15 +14,33 @@
         android:theme="@style/Theme.ActivityTest"
         tools:targetApi="31">
         <activity
+            android:name=".ThirdActivity"
+            android:exported="false"
+            tools:ignore="AppLinkUrlError">
+            <intent-filter tools:ignore="AppLinkUrlError">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".SecondActivity"
             android:exported="false"
-            android:label="This is SecondActivity"/>
+            android:label="This is SecondActivity">
+            <intent-filter>
+                <action android:name="com.example.activitytest.ACTION_START" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.example.activitytest.MY_CATEGORY" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".FirstActivity"
             android:exported="true"
             android:label="This is FirstActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
