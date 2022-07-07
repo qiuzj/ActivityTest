@@ -8,21 +8,21 @@
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button 2"
+        android:text="Toast test"
         />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button 2"
+        android:text="销毁自己"
         />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="显式Intent"
+        android:text="显式Intent SecondActivity"
         />
 
     <Button
@@ -44,5 +44,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="传递数据"
+        />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="回传数据1"
+        />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="回传数据2"
         />
 </LinearLayout>

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
@@ -55,6 +56,37 @@ class FirstActivity : AppCompatActivity() {
             val data = "Hello ThirdActivity, I'm from FirstActiry"
             intent.putExtra("extra_data", data)
             startActivity(intent)
+        }
+
+        val button7: Button = findViewById(R.id.button7)
+        button7.setOnClickListener{
+            val intent = Intent(this, ThirdActivity::class.java)
+            val data = "Hello ThirdActivity, I'm from FirstActiry"
+            intent.putExtra("extra_data", data)
+            startActivityForResult(intent, 1)
+        }
+
+        val button8: Button = findViewById(R.id.button8)
+        button8.setOnClickListener{
+            val intent = Intent(this, ThirdActivity::class.java)
+            val data = "Hello ThirdActivity, I'm from FirstActiry"
+            intent.putExtra("extra_data", data)
+            startActivityForResult(intent, 2)
+        }
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (requestCode) {
+            1 -> if (resultCode == RESULT_OK) {
+                val returnedData = data?.getStringExtra("data_return")
+                Log.d("FirstActivity", "[1] returned data is $returnedData")
+            }
+            2 -> if (resultCode == RESULT_OK) {
+                val returnedData = data?.getStringExtra("data_return")
+                Toast.makeText(this, "[2] return data is $returnedData", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
