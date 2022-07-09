@@ -22,13 +22,5 @@ class ThirdActivity : AppCompatActivity() {
             setResult(RESULT_OK, intent)
             finish()
         }
-
-        val button4: Button = findViewById(R.id.button4)
-        button4.setOnClickListener {
-            val intent = Intent()
-            intent.putExtra("data_return", "Hello FirstActivity")
-            setResult(RESULT_OK, intent)
-            finish()
-        }
     }
 }
