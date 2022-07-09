@@ -10,9 +10,10 @@ import android.view.MenuItem
 import android.widget.Button
 import android.widget.Toast
 
-class FirstActivity : AppCompatActivity() {
+class FirstActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("FirstActivity", "Task id is $taskId. " + this.toString())
         setContentView(R.layout.first_layout)
 
         val button1: Button = findViewById(R.id.button1)
@@ -74,6 +75,11 @@ class FirstActivity : AppCompatActivity() {
             startActivityForResult(intent, 2)
         }
 
+        val button9: Button = findViewById(R.id.button9)
+        button9.setOnClickListener{
+            val intent = Intent(this, FirstActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -104,4 +110,10 @@ class FirstActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.d("FirstActivity", "onRestart. Task id is $taskId")
+    }
+
 }
